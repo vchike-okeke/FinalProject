@@ -1,0 +1,729 @@
+   var Bitmoji = function (x,y,h)
+{
+    noStroke();
+    fill(176, 108, 73);
+    ellipse(x,y,h/150*83,h/150*100); //head
+    noFill();
+    arc(x-(42*h/150),y+(37*h/150),h/150*28,h/150*55,0,361); //left chin
+    noFill();
+    arc(x+42*h/150,y+37*h/150,h/150*28,h/150*55,0,361); //right chin
+    fill(38, 21, 5);
+    ellipse(x,y-37*h/150,h/150*62,h/150*28);
+    quad(x-50*h/150,y,x-37*h/150,y-32*h/150,x-10*h/150,y-50*h/150,x-30*h/150,y+20*h/150); //left hair
+    quad(x+49*h/150,y-2*h/150,x+34*h/150,y-32*h/150,x+13*h/150,y-50*h/150,x+35*h/150,y+20*h/150);//right hair
+    fill(94, 46, 12);
+    stroke(0, 0, 0);
+    quad(x-20*h/150,y-5*h/150,x-2*h/150,y-5*h/150,x-2*h/150,y+9*h/150,x-20*h/150,y+9*h/150);
+    quad(x+7*h/150,y-5*h/150,x+25*h/150,y-5*h/150,x+25*h/150,y+9*h/150,x+7*h/150,y+9*h/150);
+    line(x-1*h/150,y,x+7*h/150,y);
+    ellipse(x-10*h/150,y,h/150*10,h/150*8);
+    ellipse(x+17*h/150,y,h/150*10,h/150*8);
+    fill(176,108,73);
+    bezier(x,y,x+21*h/150,y+22*h/150,x-8*h/150,y+20*h/150,x-4*h/150,y+15*h/150);
+    fill(255,255,255);
+    arc(x+3*h/150,y+25*h/150,h/150*30,h/150*13,1,180);
+    line(x-14*h/150,y+24*h/150,x+19*h/150,y+24*h/150);
+    fill(0, 0, 0);
+    quad(x-50*h/150,y+50*h/150,x+50*h/150,y+50*h/150,x+50*h/150,y+100*h/150,x-50*h/150,y+100*h/150);
+    fill(255, 0, 0);
+    textSize(20*h/150);
+    text("VCO",x-20*h/150,y+80*h/150);
+};
+
+ // CLINTON draw function for the top part of my bitMoji (head)
+var drawHead = function(x,y,bitmojiHeight) {
+noStroke();
+fill(132,55,34); //fill to skin tone
+
+ellipse(x,y,bitmojiHeight/150*81,bitmojiHeight/150*100); //head
+fill(255,255,255);
+
+
+arc(x-bitmojiHeight/150*44,y+bitmojiHeight/150*37,bitmojiHeight/150*28,bitmojiHeight/150*55,bitmojiHeight/150*0,bitmojiHeight/150*361); //left chisel
+
+arc(x+bitmojiHeight/150*45,y+bitmojiHeight/150*37,bitmojiHeight/150*28,bitmojiHeight/150*55,bitmojiHeight/150*0,bitmojiHeight/150*361); //right chisel
+
+fill(0, 0, 0); //black hair
+
+quad(x-bitmojiHeight/150*41,y,x-bitmojiHeight/150*38,y-bitmojiHeight/150*36,x-bitmojiHeight/150*18,y-bitmojiHeight/150*48,x-bitmojiHeight/150*26,y-bitmojiHeight/150*5); //left hair
+
+quad(x+bitmojiHeight/150*37,y-bitmojiHeight/150*17,x+bitmojiHeight/150*35,y-bitmojiHeight/150*38,x-bitmojiHeight/150*10,y-bitmojiHeight/150*40,x-bitmojiHeight/150*29,y-bitmojiHeight/150*16);//right hair
+
+ellipse(x,y-bitmojiHeight/150*36,bitmojiHeight/150*73,bitmojiHeight/150*28); //top hair
+
+stroke(0);
+fill(74, 27, 27);
+ellipse(x+bitmojiHeight/150*2,y-bitmojiHeight/150*44,bitmojiHeight/150*76,bitmojiHeight/150*27); //hat
+
+arc(x-bitmojiHeight/150*33,y-bitmojiHeight/150*38,bitmojiHeight/150*14,bitmojiHeight/150*-17,bitmojiHeight/150*-31,bitmojiHeight/150*216);
+
+noStroke();
+rect(x+bitmojiHeight/150*21,y-bitmojiHeight/150*46,bitmojiHeight/150*39,bitmojiHeight/150*13); //hat brim
+
+stroke(0, 0, 0);
+fill(0, 0, 0);
+line(x-bitmojiHeight/150*1,y-bitmojiHeight/150*9,x,y); //nose bridge
+
+stroke(0,0,0);
+ellipse(x-bitmojiHeight/150*10,y,bitmojiHeight/150*6,bitmojiHeight/150*6); //left eye
+
+ellipse(x+bitmojiHeight/150*21,y-bitmojiHeight/150*1,bitmojiHeight/150*6,bitmojiHeight/150*6);//right eye
+
+fill(132, 55, 34); //fill to skin tone
+
+bezier(x,y,x+bitmojiHeight/150*20,y+bitmojiHeight/150*22,x-bitmojiHeight/150*7,y+bitmojiHeight/150*20,x-bitmojiHeight/150*3,y+bitmojiHeight/150*14); //nose
+
+fill(255,255,255); // Fill for teeth
+
+arc(x+bitmojiHeight/150*3,y+bitmojiHeight/150*25,bitmojiHeight/150*30,bitmojiHeight/150*13,1,180); //mouth
+
+line(x-bitmojiHeight/150*14,y+bitmojiHeight/150*24,x+bitmojiHeight/150*19,y+bitmojiHeight/150*24); //mouth top
+
+textSize(bitmojiHeight/150*18);
+text("NY",x-bitmojiHeight/150*12,y-bitmojiHeight/150*38); //Hat text
+
+   
+};
+
+// draw function for the bottom part of my bitMoji (body)
+var drawBody = function(x, y, bitmojiHeight) {
+    
+noStroke();
+fill(230, 227, 227);
+quad(x+bitmojiHeight/150*48,y+bitmojiHeight/150*93,x+bitmojiHeight/150*41,y+bitmojiHeight/150*36,x-bitmojiHeight/150*2,y+bitmojiHeight/150*53,x-bitmojiHeight/150*12,y+bitmojiHeight/150*105); // right shoulder
+
+quad(x+bitmojiHeight/150*57,y+bitmojiHeight/150*106,x+bitmojiHeight/150*19,y+bitmojiHeight/150*51,x-bitmojiHeight/150*38,y+bitmojiHeight/150*45,x-bitmojiHeight/150*68,y+bitmojiHeight/150*111); // left shoulder
+
+fill(86, 205, 245);
+textSize(bitmojiHeight/150*25);
+text("CI", x-bitmojiHeight/150*11,y+bitmojiHeight/150*83); // Shirt text
+fill(255, 255, 255);
+};
+
+// draws my bitMoji (Top and bottom parts)
+
+var drawPerson = function (x, y, h){ //drawing bitMoji 
+    drawBody(x,y,h);
+    drawHead(x,y,h);
+};
+
+// Here are all my global variables for the game.
+
+var cars = [];
+
+var CurrentScene = 0;
+
+var CurrentColor = color(255, 0, 0);
+
+var speed = random(1,6);
+
+var Speed = [];
+
+var FroggerSpeed = 5;
+
+var GameCharacter = 1;
+
+var GameMode = 0;
+
+var GameEnd = false;
+
+
+//   This is were I created the frogger character, I used object oriented coding to  keep track of my x and y position and if ive hit any cars, also if ive crossed the map or not. I also needs hop and fall parameters to determine how much frogger moves up by and how fast to fall.
+
+var Frogger = function(x, y, config) {
+    this.x = x;
+    this.y = y;
+    this.points = 0;
+    this.cars = 0;
+    this.crossed = false;
+    this.image = getImage("creatures/Hopper-Happy");
+};
+
+Frogger.prototype.draw = function() {
+    this.y = constrain(this.y,  -10, height-50);
+    image(this.image, this.x, this.y+11, 40, 40);
+     if (GameCharacter === 1){
+         this.image = getImage("creatures/Hopper-Jumping");
+     }
+     else if (GameCharacter === 2){
+         this.image = getImage("avatars/starky-ultimate");
+     }
+     else if (GameCharacter === 3){
+         this.image = getImage("avatars/leafers-tree");
+     }
+     else if (GameCharacter === 4){
+         this.image = getImage("cute/CharacterBoy");
+     }
+     else if (GameCharacter === 5){
+         this.image = getImage("cute/CharacterPinkGirl");
+     }
+     
+};
+    
+
+Frogger.prototype.hop = function() {
+    this.y -= FroggerSpeed;
+};
+
+Frogger.prototype.fall = function() {
+    this.y += FroggerSpeed;
+};
+
+Frogger.prototype.checkForCartouch = function(car) {
+    if ((car.x+100 >= (this.x)  && car.x +100 <= (this.x + 40)) &&
+        (car.y >= this.y && car.y <= (this.y + 40))) {
+        car.y = -400;
+        this.cars++;
+    }
+};
+
+Frogger.prototype.checkForCrossed = function(dirt) {
+    if ((dirt.y >= this.y) && this.crossed === true) {
+        this.points += 2;
+        this.crossed = false;
+    }
+    else if((dirt.y <= this.y) && this.crossed === false) {
+        
+        this.crossed = true;}
+};
+// Here is where I created the cars and wrote some code to make sure there are only 100 cars, if a car is hit it disappears from the screen.
+
+var Car = function(x, y) {
+    this.x = x;
+    this.y = y;
+};
+
+Car.prototype.draw = function() {
+    fill(89, 71, 0);
+    rectMode(CENTER);
+    rect(this.x+100, this.y, 60, 40);
+    fill(0, 0, 0);
+    ellipse(this.x+100 + -27, this.y + 19,25,25);
+    ellipse(this.x+100 + 27, this.y + 19,25,25);
+    line(this.x+100, this.y+20, this.x+100 ,this.y+-20);
+};
+
+    for (var j = 0; j < 200; j++) {  
+    cars.push(new Car(j * 80  + 300, random(60, 330)));
+    if(j === 199){
+        GameEnd = true;
+    }
+    }
+
+this.image = getImage("avatars/aqualine-seed");
+var frogger = new Frogger(150, 300);
+
+
+var frogger1 = new Frogger (250, 300);
+
+var frogger2 = new Frogger (200, 300);
+
+var Button = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {};
+    this.color = config.color || color(255, 255, 255);
+};
+
+Button.prototype.draw = function() {
+    rectMode(CORNER);
+    fill(this.color);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(0, 0, 0);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+10, this.y+this.height/4);
+};
+
+Button.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+/* I Created Menu, Instructions and  buttons that their onClick functions changed the scene to its respective scene,*/
+
+var Play = new Button({
+    x: 9,
+    y: 268,
+    width: 128,
+    color: color(255, 0, 0),
+    label: "Single Player",
+    onClick: function() {
+        CurrentScene = 6;
+        GameMode = 1;
+    }
+    
+}
+);
+
+var Play1 = new Button({
+    x: 139,
+    y: 268,
+    width: 128,
+    color: color(255, 0, 0),
+    label: "Two Player",
+    onClick: function() {
+        CurrentScene = 5;
+         GameMode = 2;
+    }
+    
+}
+);
+
+var Instructions = new Button({
+    x: 271,
+    y: 268,
+    width: 120,
+    color: color(255, 0, 0),
+    label: "Instructions",
+    onClick: function() {
+        CurrentScene = 4;
+    }
+});
+
+var Easy = new Button({
+    x: 20,
+    y: 268,
+    width: 100,
+    color: color(255, 0, 0),
+    label: "EASY",
+    onClick: function() {
+        CurrentScene = 6;
+        Speed.push(2);
+    }
+    
+}
+);
+
+var Medium = new Button({
+    x: 139,
+    y: 268,
+    width: 100,
+    color: color(255, 0, 0),
+    label: "MEDIUM",
+    onClick: function() {
+        CurrentScene = 6;
+        Speed.push(3.5);
+    }
+    
+}
+);
+
+var Hard = new Button({
+    x: 266,
+    y: 268,
+    width: 100,
+    color: color(255, 0, 0),
+    label: "HARD",
+    onClick: function() {
+        CurrentScene = 6;
+        Speed.push(5);
+    }
+    
+}
+);
+var Character1 = new Button({
+    x: 30,
+    y: 190,
+    width: 95,
+    color: color(250, 213, 5),
+    label: "HOPPER",
+    onClick: function() {
+        if ( GameMode === 1) {
+            CurrentScene = 2;
+        }
+        else if ( GameMode === 2 ){
+            CurrentScene = 3;
+        }
+        GameCharacter = 1;
+    }
+    
+}
+);
+var Character2 = new Button({
+    x: 160,
+    y: 190,
+    width: 90,
+    color: color(255, 255, 255),
+    label: "STARKY",
+    onClick: function() {
+         if ( GameMode === 1) {
+            CurrentScene = 2;
+        }
+        else if ( GameMode === 2 ){
+            CurrentScene = 3;
+        }
+        GameCharacter = 2;
+    }
+    
+}
+);
+var Character3 = new Button({
+    x: 275,
+    y: 190,
+    width: 100,
+    color: color(4, 255, 0),
+    label: "LEAFERS",
+    onClick: function() {
+         if ( GameMode === 1) {
+            CurrentScene = 2;
+        }
+        else if ( GameMode === 2 ){
+            CurrentScene = 3;
+        }
+        GameCharacter = 3;
+    }
+    
+}
+);
+var Character4 = new Button({
+    x: 102.5,
+    y: 310,
+    width: 70,
+    color: color(255, 0, 0),
+    label: "BOY",
+    onClick: function() {
+         if ( GameMode === 1) {
+            CurrentScene = 2;
+        }
+        else if ( GameMode === 2 ){
+            CurrentScene = 3;
+        }
+        GameCharacter = 4;
+    }
+    
+}
+);
+var Character5 = new Button({
+    x: 227.5,
+    y: 310,
+    width: 70,
+    color: color(251, 0, 255),
+    label: "GIRL",
+    onClick: function() {
+         if ( GameMode === 1) {
+            CurrentScene = 2;
+        }
+        else if ( GameMode === 2 ){
+            CurrentScene = 3;
+        }
+        GameCharacter = 5;
+    }
+    
+}
+);
+var MainMenu = new Button({
+    x: 142,
+    y: 172,
+    width: 116,
+    height: 30,
+    color: color(255, 0, 0),
+    label: "Main Menu",
+    onClick: function() {
+        CurrentScene = 1;
+    }
+});
+
+// This is the intro scene
+var introScene1 = function() {
+    CurrentScene = 1;
+    background(66, 28, 66);
+    fill(237, 0, 237);
+    textSize(25);
+    text("By Virtue and Clinton", 164, 368);
+    textSize(65);
+    fill(0, 85, 255);
+    text("Frogger", 82, 5,373,352);
+    text("Frogger", 84, 7,373,352);
+    text("Frogger", 86, 9,373,352);
+    text("Frogger", 88, 11,373,352);
+    Bitmoji(102,160,136);
+    drawPerson(263,159,130);
+    Play.draw();
+    Play1.draw();
+    Instructions.draw();
+};
+// This scene is for the player to choose their difficulty
+var introScene2 = function() {
+    CurrentScene = 5;
+    background(66, 28, 66);
+    fill(237, 0, 237);
+    textSize(65);
+    text("DIFFICULTY", 20, 5,373,352);
+    text("DIFFICULTY", 22, 7,373,352);
+    text("DIFFICULTY", 24, 9,373,352);
+    text("DIFFICULTY", 26, 11,373,352);
+    Bitmoji(102,160,136);
+    drawPerson(263,159,130);
+    Easy.draw();
+    Medium.draw();
+    Hard.draw();
+};
+  //This is the code for my instructions scene where we detailed how to play the game and included a button class to go back to the main menu
+var introScene3 = function() {
+    CurrentScene = 6;
+    background(66, 28, 66);
+    fill(78, 0, 235);
+    textSize(40);
+    text("CHARACTER", 20, 5,373,352);
+    text("CHARACTER", 22, 7,373,352);
+    text("CHARACTER", 24, 9,373,352);
+    text("CHARACTER", 26, 11,373,352);
+    text("SELECTION", 150, 50,373,352);
+    text("SELECTION", 152, 52,373,352);
+    text("SELECTION", 154, 54,373,352);
+    text("SELECTION", 156, 56,373,352);
+    image(getImage("creatures/Hopper-Jumping"), 25, 100, 90, 90);
+    image(getImage("avatars/starky-ultimate"), 150, 100, 100, 100);
+    image(getImage("avatars/leafers-tree"), 275, 100, 100, 100);
+    image(getImage("cute/CharacterBoy"), 87.5, 220, 100, 100);
+    image(getImage("cute/CharacterPinkGirl"), 212.5, 220, 100, 100);
+    Character1.draw();
+    Character2.draw();
+    Character3.draw();
+    Character4.draw();
+    Character5.draw();
+};
+
+var keys = {};
+
+var keyPressed = function() { 
+  keys[keyCode] = true;
+};
+ 
+var keyReleased = function() { 
+  keys[keyCode] = false; 
+};
+
+var FirstScene = function() {
+    CurrentScene = 2;
+    background(173, 239, 255);
+    // static
+    
+    background(255, 255, 255);
+    
+    
+    fill(130, 79, 43);
+    rectMode(CORNER);
+    rect(0, height*0.00, width, height*0.10);
+    rect(0, height*0.90, width, height*0.10);
+    
+    for (var i = 0; i < cars.length; i++) {
+        cars[i].draw();
+        frogger2.checkForCartouch(cars[i]);
+        cars[i].x -= speed;
+    }
+    for (var i = 0; i === true; i++) {
+        frogger2.checkForCrossed(i);
+
+    }
+    if (keyIsPressed && key.code === 32) {
+        frogger2.hop();
+    } else {
+        frogger2.fall();
+    }
+    if ( frogger2.y > 300 && frogger2.crossed === true){
+        frogger2.crossed = false;
+    }
+    else if ( frogger2.y < 20 && frogger2.crossed === false){
+        frogger2.points+=2;
+        frogger2.crossed = true;}
+
+var Points = frogger2.points - frogger2.cars;        
+    frogger2.draw();
+    fill(0, 0, 0);
+    textSize(18);
+    text("Score: " + Points, 20, 11);
+    text("Speed: " + speed, 100, 11);
+    if ( Points >= 20){
+        fill(235, 226, 245);
+        rect(198, 163, 330, 127);
+        fill(0, 255, 26);
+        textSize(25);
+        speed = 0;
+        FroggerSpeed = 0;
+        for ( var i = 37; i < 357; i +=25){
+            image(getImage("cute/GemOrange"), i, 205, 20,20);
+            image(getImage("cute/GemOrange"), i, 97, 20,20);
+            
+        }
+        text("Congratulation You've won", 45,150);
+    }
+};
+
+var SecondScene = function() {
+    CurrentScene = 3;
+    background(251, 255, 0);
+    // static
+    
+    background(255, 255, 255);
+    
+    
+    fill(130, 79, 43);
+    rectMode(CORNER);
+    rect(0, height*0.00, width, height*0.10);
+    rect(0, height*0.90, width, height*0.10);
+    
+    for (var i = 0; i < cars.length; i++) {
+        cars[i].draw();
+        frogger.checkForCartouch(cars[i]);
+        frogger1.checkForCartouch(cars[i]);
+        cars[i].x -= Speed;
+    }
+    for (var i = 0; i === true; i++) {
+        frogger.checkForCrossed(i);
+        frogger1.checkForCrossed(i);
+        
+
+    }
+    if (keyIsPressed && keys[32]) {
+        frogger.hop();
+    } else {
+        frogger.fall();
+    }
+    if (keyIsPressed && keys[UP]) {
+        frogger1.hop();
+    } else {
+        frogger1.fall();
+    }
+    if ( frogger.y > 300 && frogger.crossed === true){
+        frogger.crossed = false;
+    }
+    else if ( frogger.y < 20 && frogger.crossed === false){
+        frogger.points+=2;
+        frogger.crossed = true;
+    }
+    if ( frogger1.y > 300 && frogger1.crossed === true){
+        frogger1.crossed = false;
+    }
+    else if ( frogger1.y < 20 && frogger1.crossed === false){
+        frogger1.points+=2;
+        frogger1.crossed = true;
+    }
+        
+var Player1Points = frogger.points - frogger.cars;
+var Player2Points = frogger1.points - frogger1.cars;
+    frogger .draw();
+    frogger1.draw();
+    fill(0, 0, 0);
+    textSize(18);
+    text("Virtue: " + Player1Points, 20, 11);
+    text("Clinton: " + Player2Points, 100, 11);
+    if ( Player1Points >= 20){
+         rectMode(CENTER);
+        fill(235, 226, 245);
+        rect(198, 178, 330, 127);
+        fill(0, 255, 26);
+        textSize(25);
+        Speed = 0;
+        FroggerSpeed = 0;
+        for ( var i = 37; i < 357; i +=25){
+            image(getImage("cute/GemOrange"), i, 220, 20,20);
+            image(getImage("cute/GemOrange"), i, 110, 20,20);
+            
+        }
+        text("Congratulation Player 1", 70,150);
+        text("YOU'VE WON", 114,175);
+    }
+    if ( Player2Points >= 20){
+        fill(235, 226, 245);
+        rect(198, 178, 330, 127);
+        fill(0, 255, 26);
+        textSize(25);
+        Speed = 0;
+        FroggerSpeed = 0;
+        for ( var i = 37; i < 357; i +=25){
+            image(getImage("cute/GemBlue"), i, 220, 20,20);
+            image(getImage("cute/GemBlue"), i, 110, 20,20);
+            
+        }
+        text("Congratulation Player 2", 70,150);
+        text("YOU'VE WON", 114,175);
+    }
+};
+
+var LastScene = function() {
+    CurrentScene = 4;
+    background(211, 237, 237);
+    fill(0, 0, 0);
+    textSize(30);
+    text("Single Player ", 117, 12,391,352);
+    textSize(15);
+    text("Press the space bar to move the bitmoji. Try to get to the top while avoiding the cars. If you hit the cars you lose a point but if you get across you gain 2 points. Game ends when you reach 40 points !!!!", 35, 60,348,352);
+    textSize(30);
+    text("Two Player ", 117, 236,391,352);
+    textSize(15);
+    text("Player on the right uses the space bar to move up and down. While the player on the uses the UP arrow key. The same rules apply as in the single player mode except this time the first player to reach 20 points wins !!!!", 35, 271,348,352);
+     Bitmoji(78,184,85);
+     drawPerson(315,184,85);
+    MainMenu.draw();
+    
+};
+
+/* This is where i called the differnet scenes using if statements to specify which scene is being called and when. */
+
+draw = function() {
+    if (CurrentScene === 1) {
+        introScene1();
+    
+    }else if (CurrentScene === 2) {
+        FirstScene();
+       
+    }
+    else if (CurrentScene === 3) {
+        SecondScene();
+       
+    }
+    else
+    if (CurrentScene === 4) {
+        LastScene();
+       
+    }
+    if (CurrentScene === 5) {
+        introScene2();
+       
+    }
+    if (CurrentScene === 6) {
+        introScene3();
+       
+    }
+};
+
+/* the mouse clicked function allows the Play Instructions and Pause buttons to work only if we are on the first scene, this prevents the buttons from responding when they arent visible */
+
+
+mouseClicked = function() {
+    if(CurrentScene === 1){
+        Play.handleMouseClick();
+        Play1.handleMouseClick();
+        Instructions.handleMouseClick();
+    }
+    else if(CurrentScene === 5){
+        Easy.handleMouseClick();
+        Medium.handleMouseClick();
+        Hard.handleMouseClick();
+    }
+    else if(CurrentScene === 4){
+        MainMenu.handleMouseClick();
+    }
+    else if(CurrentScene === 6){
+        Character1.handleMouseClick();
+        Character2.handleMouseClick();
+        Character3.handleMouseClick();
+        Character4.handleMouseClick();
+        Character5.handleMouseClick();
+
+    }
+};
+
+introScene1();
