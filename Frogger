@@ -1,4 +1,5 @@
-   var Bitmoji = function (x,y,h)
+ //This is the bitmoji function for Virtue. It draws the image that is seen each time its called
+ var Bitmoji = function (x,y,h)
 {
     noStroke();
     fill(176, 108, 73);
@@ -128,7 +129,7 @@ var GameMode = 0;
 var GameEnd = false;
 
 
-//   This is were I created the frogger character, I used object oriented coding to  keep track of my x and y position and if ive hit any cars, also if ive crossed the map or not. I also needs hop and fall parameters to determine how much frogger moves up by and how fast to fall.
+//   This is were we created the frogger character,  used object oriented coding to  keep track of the x and y position and if the player has hit any cars, also if we've crossed the map or not. we also needed hop and fall parameters to determine how much frogger moves up by and how fast to fall.
 
 var Frogger = function(x, y, config) {
     this.x = x;
@@ -138,6 +139,8 @@ var Frogger = function(x, y, config) {
     this.crossed = false;
     this.image = getImage("creatures/Hopper-Happy");
 };
+
+//This section draws the frogger. We set it up using the Gamecharacter variable that we declared earlier so that there will be multiple choices that a player has when choosing who they want to pay as.
 
 Frogger.prototype.draw = function() {
     this.y = constrain(this.y,  -10, height-50);
@@ -186,7 +189,8 @@ Frogger.prototype.checkForCrossed = function(dirt) {
         
         this.crossed = true;}
 };
-// Here is where I created the cars and wrote some code to make sure there are only 100 cars, if a car is hit it disappears from the screen.
+
+// Here is where we created the cars and wrote some code to make sure there are only 100 cars, if a car is hit it disappears from the screen.
 
 var Car = function(x, y) {
     this.x = x;
@@ -211,8 +215,10 @@ Car.prototype.draw = function() {
     }
 
 this.image = getImage("avatars/aqualine-seed");
-var frogger = new Frogger(150, 300);
 
+//This is where we created the frogger for the w different scenes
+
+var frogger = new Frogger(150, 300);
 
 var frogger1 = new Frogger (250, 300);
 
@@ -250,7 +256,9 @@ Button.prototype.handleMouseClick = function() {
         this.onClick();
     }
 };
-/* I Created Menu, Instructions and  buttons that their onClick functions changed the scene to its respective scene,*/
+/* I Created Menu, Instructions and  buttons that their onClick functions changed the scene to its respective scene,
+The Nuttons are assigned scene functios that have them perfom a certain action on click
+*/
 
 var Play = new Button({
     x: 9,
@@ -332,6 +340,7 @@ var Hard = new Button({
     
 }
 );
+
 var Character1 = new Button({
     x: 30,
     y: 190,
@@ -350,6 +359,7 @@ var Character1 = new Button({
     
 }
 );
+
 var Character2 = new Button({
     x: 160,
     y: 190,
@@ -368,6 +378,7 @@ var Character2 = new Button({
     
 }
 );
+
 var Character3 = new Button({
     x: 275,
     y: 190,
@@ -386,6 +397,7 @@ var Character3 = new Button({
     
 }
 );
+
 var Character4 = new Button({
     x: 102.5,
     y: 310,
@@ -404,6 +416,7 @@ var Character4 = new Button({
     
 }
 );
+
 var Character5 = new Button({
     x: 227.5,
     y: 310,
@@ -422,6 +435,7 @@ var Character5 = new Button({
     
 }
 );
+
 var MainMenu = new Button({
     x: 142,
     y: 172,
@@ -435,6 +449,7 @@ var MainMenu = new Button({
 });
 
 // This is the intro scene
+
 var introScene1 = function() {
     CurrentScene = 1;
     background(66, 28, 66);
@@ -453,7 +468,9 @@ var introScene1 = function() {
     Play1.draw();
     Instructions.draw();
 };
+
 // This scene is for the player to choose their difficulty
+
 var introScene2 = function() {
     CurrentScene = 5;
     background(66, 28, 66);
@@ -469,7 +486,9 @@ var introScene2 = function() {
     Medium.draw();
     Hard.draw();
 };
-  //This is the code for my instructions scene where we detailed how to play the game and included a button class to go back to the main menu
+
+//This is the code for my instructions scene where we detailed how to play the game and included a button class to go back to the main menu
+
 var introScene3 = function() {
     CurrentScene = 6;
     background(66, 28, 66);
@@ -495,6 +514,7 @@ var introScene3 = function() {
     Character5.draw();
 };
 
+//This code allows the space bar and up button to operate at thesame time.
 var keys = {};
 
 var keyPressed = function() { 
@@ -505,6 +525,7 @@ var keyReleased = function() {
   keys[keyCode] = false; 
 };
 
+//This scene draws the single player mode of the game. 
 var FirstScene = function() {
     CurrentScene = 2;
     background(173, 239, 255);
@@ -517,6 +538,8 @@ var FirstScene = function() {
     rectMode(CORNER);
     rect(0, height*0.00, width, height*0.10);
     rect(0, height*0.90, width, height*0.10);
+    
+    // this sets the speed for how fast the cars move across the screen
     
     for (var i = 0; i < cars.length; i++) {
         cars[i].draw();
