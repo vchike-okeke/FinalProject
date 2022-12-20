@@ -298,7 +298,7 @@ var Instructions = new Button({
         CurrentScene = 4;
     }
 });
-
+// following 3 buttons are used for the 3 different difficulties implemented in the game
 var Easy = new Button({
     x: 20,
     y: 268,
@@ -340,7 +340,7 @@ var Hard = new Button({
     
 }
 );
-
+// these buttons create the different characters used in the character selection
 var Character1 = new Button({
     x: 30,
     y: 190,
