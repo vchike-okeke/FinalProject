@@ -670,11 +670,12 @@ var Player2Points = frogger1.points - frogger1.cars;
             image(getImage("cute/GemBlue"), i, 110, 20,20);
             
         }
+        //text that pops up when the player wins
         text("Congratulation Player 2", 70,150);
         text("YOU'VE WON", 114,175);
     }
 };
-
+// function for the last scene (scene that gives a brief explanation of how to play the game)
 var LastScene = function() {
     CurrentScene = 4;
     background(211, 237, 237);
