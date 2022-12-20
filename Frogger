@@ -223,7 +223,7 @@ var frogger = new Frogger(150, 300);
 var frogger1 = new Frogger (250, 300);
 
 var frogger2 = new Frogger (200, 300);
-
+//khan button class
 var Button = function(config) {
     this.x = config.x || 0;
     this.y = config.y || 0;
