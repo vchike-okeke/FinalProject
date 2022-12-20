@@ -583,7 +583,7 @@ var Points = frogger2.points - frogger2.cars;
         text("Congratulation You've won", 45,150);
     }
 };
-
+//this draws the second scene that has all the cars when playing the game
 var SecondScene = function() {
     CurrentScene = 3;
     background(251, 255, 0);
