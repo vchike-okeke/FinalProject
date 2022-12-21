@@ -171,7 +171,7 @@ Frogger.prototype.hop = function() {
 Frogger.prototype.fall = function() {
     this.y += FroggerSpeed;
 };
-
+ // Code for to keep track of what car is touched and increment it.
 Frogger.prototype.checkForCartouch = function(car) {
     if ((car.x+100 >= (this.x)  && car.x +100 <= (this.x + 40)) &&
         (car.y >= this.y && car.y <= (this.y + 40))) {
@@ -223,6 +223,7 @@ var frogger = new Frogger(150, 300);
 var frogger1 = new Frogger (250, 300);
 
 var frogger2 = new Frogger (200, 300);
+
 //khan button class
 var Button = function(config) {
     this.x = config.x || 0;
@@ -256,7 +257,7 @@ Button.prototype.handleMouseClick = function() {
         this.onClick();
     }
 };
-/* I Created Menu, Instructions and  buttons that their onClick functions changed the scene to its respective scene,
+/* We Created Menu, Instructions and  buttons that their onClick functions changed the scene to its respective scene,
 The Nuttons are assigned scene functios that have them perfom a certain action on click
 */
 
@@ -694,7 +695,7 @@ var LastScene = function() {
     
 };
 
-/* This is where i called the differnet scenes using if statements to specify which scene is being called and when. */
+/* This is where we called the differnet scenes using if statements to specify which scene is being called and when. */
 
 draw = function() {
     if (CurrentScene === 1) {
